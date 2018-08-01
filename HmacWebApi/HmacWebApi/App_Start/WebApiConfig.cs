@@ -11,6 +11,9 @@ namespace HmacWebApi
         {
             // Web API configuration and services
 
+            // Enable tracining.
+            config.EnableSystemDiagnosticsTracing();
+
             // Web API routes
             config.MapHttpAttributeRoutes();
 
