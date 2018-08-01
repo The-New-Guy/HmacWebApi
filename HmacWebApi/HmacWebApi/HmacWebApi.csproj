@@ -84,6 +84,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="block-iu.png" />
+    <Content Include="brand.css" />
+    <Content Include="Default.html" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>

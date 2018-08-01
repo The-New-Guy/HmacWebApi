@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Test Web API</title>
+</head>
+<body>
+    <h1>Demo API REST Service</h1>
+    <h2>Test Links</h2>
+    <p>
+        The following links are for testing and viewing responses from this website and the PowerShell backend.
+        Hitting F12 in your browser and viewing the Network tab is a handy way to view the response data.
+    </p>
+    <p>To view API details, see the project wiki at <a href="https://github.iu.edu/UITS-CCI-Test/Demo/wiki" target="_blank">https://github.iu.edu/UITS-CCI-Test/Demo/wiki</a>.</p>
+    <h3>REST Service (no call to PowerShell backend)</h3>
+    <p>These responses reflect situations happening prior to calling PowerShell.</p>
+    <ul>
+        <li><a href="test/valid">Value returned (http 200 OK)</a></li>
+        <li><a href="test/action">Action method exception (http 400 Bad Request)</a></li>
+        <li><a href="test/constructor">Constructor exception (http 404 Not Found)</a></li>
+        <li><a href="test/content">Content write exception (unhandled - http 500 Internal Server Error)</a></li>
+        <li><a href="test/500">500 (handled - http 500 Internal Server Error)</a></li>
+        <li><a href="test/cciexception">GeneralServerError from Strings.json (unhandled - writes to API EventLog)</a></li>
+        <li><a href="test/cciexceptionwithargs">AccountAlreadyEnabled from Strings.json using formatted string (unhandled - writes to API EventLog)</a></li>
+    </ul>
+    <h3>PowerShell Backend (EndpointResult object returns as JSON)</h3>
+    <p>The following links call the PowerShell backend to execute the Test-EndpointResult command.</p>
+    <ul>
+        <li><a href="test/psobject/boolean">Boolean Test</a></li>
+        <li><a href="test/psobject/string">String Test</a></li>
+        <li><a href="test/psobject/int">Int Test</a></li>
+        <li><a href="test/psobject/nullobject">Null Object Test</a></li>
+        <li><a href="test/psobject/allempty">All Empty Test</a></li>
+        <li><a href="test/psobject/zerocomplexobject">Zero Complex Objects Test</a></li>
+        <li><a href="test/psobject/onecomplexobject">One Complex Object Test</a></li>
+        <li><a href="test/psobject/multiplecomplexobject">Multiple Complex Objects Test</a></li>
+        <li><a href="test/psobject/notfounderror">Not Found Error Test</a></li>
+        <li><a href="test/psobject/internalservererror">Internal Server Error Test</a></li>
+    </ul>
+    <p>The following links call the PowerShell backend to execute the Get-CCIUser command.</p>
+    <ul>
+        <li><a href="users/ccitst44">ccitst44 Details</a></li>
+        <li><a href="users/ccitst45">ccitst45 Details</a></li>
+        <li><a href="users/ccitst46">ccitst46 Details</a></li>
+        <li><a href="users/ccitst47">ccitst47 Details</a></li>
+    </ul>
+</body>
+</html>
