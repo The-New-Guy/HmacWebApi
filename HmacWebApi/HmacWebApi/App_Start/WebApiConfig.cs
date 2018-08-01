@@ -22,6 +22,12 @@ namespace HmacWebApi
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.Routes.MapHttpRoute(
+                name: "OutOfBounds",
+                routeTemplate: "{*pathInfo}",
+                defaults: new { controller = "Default", pathInfo = RouteParameter.Optional }
+            );
         }
     }
 }
