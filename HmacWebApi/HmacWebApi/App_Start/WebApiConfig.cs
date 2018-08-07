@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using CCI.API.Authentication;
+using CCI.API.Authentication.HMAC;
 using System.Web.Http;
 
 namespace HmacWebApi
@@ -9,6 +8,13 @@ namespace HmacWebApi
     {
         public static void Register(HttpConfiguration config)
         {
+            // Hook up authentication message handlers.
+            //config.MessageHandlers.Add(new HmacAuthenticationHandler(new DummySecretRepository(), new HmacCanonicalRepresentationBuilder(), new HmacSignatureCalculator()));
+            //config.MessageHandlers.Add(new ResponseContentMd5Handler());
+
+            config.MessageHandlers.Add(new CacheHandler(new DummySecretRepository(), new HmacCanonicalRepresentationBuilder(), new HmacSignatureCalculator()));
+            config.MessageHandlers.Add(new ResponseContentMd5Handler());
+
             // Web API configuration and services
 
             // Enable tracining.

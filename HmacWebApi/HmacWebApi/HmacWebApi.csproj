@@ -44,8 +44,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CCI.API.Authentication, Version=0.1.1.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CCI.API.Authentication.0.1.1.1\lib\netstandard2.0\CCI.API.Authentication.dll</HintPath>
+    <Reference Include="CCI.API.Authentication, Version=0.1.1.14, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CCI.API.Authentication.0.1.1-dateTime.14\lib\netstandard2.0\CCI.API.Authentication.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Net.Http" />
@@ -93,6 +93,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\CacheHandler.cs" />
+    <Compile Include="Repositories\DummySecretRepository.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
@@ -111,7 +113,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
