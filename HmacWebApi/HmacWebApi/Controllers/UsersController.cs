@@ -19,5 +19,24 @@ namespace HmacWebApi.Controllers
             responseMessage.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
             return ResponseMessage(responseMessage);
         }
+
+        /// <summary>
+        /// Set user details in Active Directory.
+        /// </summary>
+        /// <param name="username">The username of the account.</param>
+        /// <returns>An EndpointResult object which may contain info, warning, and error messages.</returns>
+        [HttpPost, Route("api/users/{username}")]
+        public IHttpActionResult PostUser(string username, [FromBody]string data)
+        {
+            var responseMessage = Request.CreateResponse(System.Net.HttpStatusCode.OK);
+            string respContent = "{\n" +
+                                $"    \"Name\":  \"{ username }\",\n" +
+                                $"    \"Data\":  \"{ data }\"\n" +
+                                 "}";
+
+            responseMessage.Content = new StringContent('"' + username + '"');
+            responseMessage.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            return ResponseMessage(responseMessage);
+        }
     }
 }

@@ -81,7 +81,7 @@ namespace HmacWebApi
             }
 
             // Catch any authentication failure message and provide custom error message response.
-            if (true || response != null && response.StatusCode == HttpStatusCode.Unauthorized)
+            if (response != null && response.StatusCode == HttpStatusCode.Unauthorized)
             {
                 var serverDate = DateTimeOffset.Now;
                 var respMsg = new StringBuilder();
