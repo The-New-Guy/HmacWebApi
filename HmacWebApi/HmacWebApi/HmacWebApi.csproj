@@ -45,8 +45,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="NGY.API.Authentication">
-      <HintPath>..\..\HmacAuthentication\NGY.API.Authentication\NGY.API.Authentication\bin\Debug\netstandard2.0\NGY.API.Authentication.dll</HintPath>
+    <Reference Include="NGY.API.Authentication, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\HmacAuthentication\NGY.API.Authentication\NGY.API.Authentication\bin\PRD\net47\NGY.API.Authentication.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
