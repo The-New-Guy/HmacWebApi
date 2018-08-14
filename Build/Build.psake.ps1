@@ -52,7 +52,7 @@ Task Default -Depends Build
 Task Build -Depends PreReqs, UpdateVersion, BuildLibrary, PackageLibrary, CleanUp
 
 # Clean the project of any build artifacts.
-Task Clean -Depends CleanUp
+Task Clean -Depends CleanUp, CleanNuGetRepository
 
 #====================================================================================================================================================
 ###################
@@ -232,4 +232,31 @@ Task CleanUp -Depends PackageLibrary {
 
 }
 
-#endregion Clean Up
+#====================================================================================================================================================
+############################
+## Clean NuGet Repository ##
+############################
+
+#region Clean NuGet Repository
+
+# Clean up tasks.
+Task CleanNuGetRepository {
+
+    Write-Host "Cleaning local NuGet repository...`n" -ForegroundColor Green
+
+    try {
+
+        # Before we go deleting things with -Recurse -Force, lets make sure we aren't clobbering the filesystem.
+        $resolvedPath = Resolve-Path -Path $NuGetPath -ErrorAction Stop
+        if ($resolvedPath.Drive.Root -ne $resolvedPath.Path) {
+            Remove-Item -Path "$NuGetPath\*" -Force -Verbose:$IsVerbose -ErrorAction Stop
+        } else { throw "Can't delete the root of a drive : $NuGetPath" }
+
+    } catch {
+        Write-Error -Message "Error cleaning local NuGet repository." -Exception $_.Exception
+        exit 1
+    }
+
+}
+
+#endregion Clean NuGet Repository
