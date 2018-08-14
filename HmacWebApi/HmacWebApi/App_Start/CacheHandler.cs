@@ -6,8 +6,8 @@ using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using CCI.API.Authentication;
-using CCI.API.Authentication.HMAC;
+using NGY.API.Authentication;
+using NGY.API.Authentication.HMAC;
 
 namespace HmacWebApi
 {

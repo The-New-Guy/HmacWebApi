@@ -1,4 +1,4 @@
-﻿using CCI.API.Authentication;
+﻿using NGY.API.Authentication;
 using System;
 using System.Collections.Generic;
 using System.Security.Cryptography;

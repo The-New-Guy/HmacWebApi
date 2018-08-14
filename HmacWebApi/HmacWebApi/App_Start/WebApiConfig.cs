@@ -1,5 +1,5 @@
-﻿using CCI.API.Authentication;
-using CCI.API.Authentication.HMAC;
+﻿using NGY.API.Authentication;
+using NGY.API.Authentication.HMAC;
 using System.Web.Http;
 
 namespace HmacWebApi
