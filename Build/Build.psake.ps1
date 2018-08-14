@@ -211,23 +211,27 @@ Task PackageLibrary -Depends BuildLibrary {
 #region Clean Up
 
 # Clean up tasks.
-Task CleanUp -Depends PackageLibrary {
+Task CleanUp {
 
     Write-Host "Cleaning up...`n" -ForegroundColor Green
 
-    try {
+    if (Test-Path $TempFilePath) {
 
-        Copy-Item -Path "$TempFilePath\$(Split-Path $ProjectFilePath -Leaf)" -Destination $ProjectFilePath -Force -Verbose:$IsVerbose -ErrorAction Stop
+        try {
 
-        # Before we go deleting things with -Recurse -Force, lets make sure we aren't clobbering the filesystem.
-        $resolvedPath = Resolve-Path -Path $TempFilePath -ErrorAction Stop
-        if ($resolvedPath.Drive.Root -ne $resolvedPath.Path) {
-            Remove-Item -Path $TempFilePath -Recurse -Force -Verbose:$IsVerbose -ErrorAction Stop
-        } else { throw "Can't delete the root of a drive : $TempFilePath" }
+            Copy-Item -Path "$TempFilePath\$(Split-Path $ProjectFilePath -Leaf)" -Destination $ProjectFilePath -Force -Verbose:$IsVerbose -ErrorAction Stop
 
-    } catch {
-        Write-Error -Message "Error cleaning up temporary project files." -Exception $_.Exception
-        exit 1
+            # Before we go deleting things with -Recurse -Force, lets make sure we aren't clobbering the filesystem.
+            $resolvedPath = Resolve-Path -Path $TempFilePath -ErrorAction Stop
+            if ($resolvedPath.Drive.Root -ne $resolvedPath.Path) {
+                Remove-Item -Path $TempFilePath -Recurse -Force -Verbose:$IsVerbose -ErrorAction Stop
+            } else { throw "Can't delete the root of a drive : $TempFilePath" }
+
+        } catch {
+            Write-Error -Message "Error cleaning up temporary project files." -Exception $_.Exception
+            exit 1
+        }
+
     }
 
 }
