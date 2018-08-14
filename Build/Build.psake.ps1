@@ -136,7 +136,7 @@ Task UpdateVersion -Depends PreReqs {
         $content | ForEach-Object { $_ -replace '( +)<Version>(.*?)</Version>$',"`$1<Version>$NuGetPackageVersion</Version>" } |
                    ForEach-Object { $_ -replace '( +)<AssemblyVersion>(.*?)</AssemblyVersion>$',"`$1<AssemblyVersion>$AssemblyVersion</AssemblyVersion>" } |
                    ForEach-Object { $_ -replace '( +)<FileVersion>(.*?)</FileVersion>$',"`$1<FileVersion>$AssemblyVersion</FileVersion>" } |
-                   Out-File -FilePath $ProjectFilePath -ErrorAction Stop
+                   Out-File -FilePath $ProjectFilePath -Encoding utf8 -ErrorAction Stop
 
         Write-Host "Project file versions updated:" -ForegroundColor Green
         Write-Host "    Package Version   : $NuGetPackageVersion" -ForegroundColor Green
