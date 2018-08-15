@@ -34,7 +34,7 @@ namespace HmacWebApi.Controllers
                                 $"    \"Data\":  \"{ data }\"\n" +
                                  "}";
 
-            responseMessage.Content = new StringContent('"' + username + '"');
+            responseMessage.Content = new StringContent(respContent);
             responseMessage.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
             return ResponseMessage(responseMessage);
         }
