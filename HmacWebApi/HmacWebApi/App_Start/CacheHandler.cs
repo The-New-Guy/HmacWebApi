@@ -117,7 +117,7 @@ namespace HmacWebApi
                 if (request.Content != null)
                 {
                     contentLength = request.Content.Headers.ContentLength;
-                    serverMd5 = Convert.ToBase64String(await MD5Helper.ComputeHash(request.Content)) == "1B2M2Y8AsgTpgAmY7PhCfg==" ? "" : serverMd5;
+                    serverMd5 = Convert.ToBase64String(await MD5Helper.ComputeHash(request.Content)) == "1B2M2Y8AsgTpgAmY7PhCfg==" ? "" : Convert.ToBase64String(await MD5Helper.ComputeHash(request.Content));
                     if (request.Content.Headers.ContentMD5 != null && request.Content.Headers.ContentMD5.Length > 0)
                         md5 = Convert.ToBase64String(request.Content.Headers.ContentMD5);
                 }
@@ -142,6 +142,8 @@ namespace HmacWebApi
                 respMsg.AppendLine("CannonicalRep    :\n" + msgSigRep);
 
                 respMsg.AppendLine("ContentLength    : " + contentLength);
+                respMsg.AppendLine("ContentType      : " + request.Content.Headers.ContentType);
+                respMsg.AppendLine("ContentMediaType : " + request.Content.Headers.ContentType.MediaType.ToLower());
                 respMsg.AppendLine("Content          : \"" + await request.Content.ReadAsStringAsync() + "\"");
 
                 response.Content = new StringContent(respMsg.ToString());
