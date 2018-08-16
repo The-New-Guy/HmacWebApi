@@ -32,7 +32,7 @@
         public static readonly string[] ValidContentMediaTypes = {
             "application/x-www-form-urlencoded",
             "application/json",
-            "text/html"
+            "text/plain"
         };
     }
 }

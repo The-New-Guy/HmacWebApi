@@ -1,7 +1,7 @@
 <#
 
     This psake build script will build and package the NGY.API.Authentication library and "Publish" it to a local folder in disk that will act as a
-    psuedo NuGet repository. This NuGet repository can then be used by the various other projects in this repository allowing them to easily manage
+    pseudo NuGet repository. This NuGet repository can then be used by the various other projects in this repository allowing them to easily manage
     and update their packages accordingly.
 
 #>
