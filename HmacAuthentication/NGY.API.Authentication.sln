@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2047
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGY.API.Authentication", "NGY.API.Authentication\NGY.API.Authentication.csproj", "{C9D28321-7FBE-4964-AE33-2309A9B01E4A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		TST|Any CPU = TST|Any CPU
+		PRD|Any CPU = PRD|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C9D28321-7FBE-4964-AE33-2309A9B01E4A}.TST|Any CPU.ActiveCfg = TST|Any CPU
+		{C9D28321-7FBE-4964-AE33-2309A9B01E4A}.TST|Any CPU.Build.0 = TST|Any CPU
+		{C9D28321-7FBE-4964-AE33-2309A9B01E4A}.PRD|Any CPU.ActiveCfg = PRD|Any CPU
+		{C9D28321-7FBE-4964-AE33-2309A9B01E4A}.PRD|Any CPU.Build.0 = PRD|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {264D669B-75BE-4FCE-AC07-6D7E5525412D}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net47</TargetFrameworks>
+    <Configurations>TST;PRD</Configurations>
+    <Version>0.1.0</Version>
+    <Authors>New-Guy</Authors>
+    <Company>New-Guy.com</Company>
+    <Description>A .NET Standard Class Library that provides utilities for API authentication.</Description>
+    <Copyright>New-Guy.com 2018</Copyright>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+    <FileVersion>0.1.0.0</FileVersion>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)'=='net47'">
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
+    <DefineConstants>netstandard2_0</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)'=='net47'">
+    <DefineConstants>net47</DefineConstants>
+  </PropertyGroup>
+
+</Project>
